@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class CustomersController < ApplicationController
-  def index
+class PagesController < ApplicationController
+  def main
     @customers = Customer.all
   end
 end
