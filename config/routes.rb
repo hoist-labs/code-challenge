@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root "pages#main"
+  resources :customers, only: %i[index]
+  root "customers#index"
 end
