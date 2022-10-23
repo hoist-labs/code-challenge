@@ -1,4 +1,4 @@
-# Remove all customers from the DB
+# Remove all customers and their payments from the DB
 Customer.destroy_all
 puts "Removed all existing Customers from DB ✅"
 
@@ -23,3 +23,18 @@ Customer.create!(first_name: "Logan", last_name: "Soto")
 Customer.create!(first_name: "Ivy", last_name: "Myers")
 Customer.create!(first_name: "Deana", last_name: "Lopez")
 puts "Seeded DB with 20 Customers ✅"
+
+# Generate 1-3 PaymentRequests for every customer
+Customer.all.each do |customer|
+  # Generate a random number between 1 and 3
+  n = (1 + rand * 3).floor
+
+  # Generate n PaymentRequests for a given customer
+  n.times do |i|
+    customer.payment_requests.create!(
+      amount: (rand * 1_000_000).floor,
+      status: PaymentRequest.statuses.keys.sample
+    )
+  end
+end
+puts "Seeded DB with Payment Requests ✅"

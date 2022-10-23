@@ -1,0 +1,4 @@
+jordans_payment:
+  customer: jordan
+  status: generated
+  amount: 100_000
