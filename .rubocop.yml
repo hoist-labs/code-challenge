@@ -1,0 +1,132 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 3.1.2
+  NewCops: disable
+  Exclude:
+    - "**/node_modules/**/*"
+    - "**/templates/**/*"
+    - "**/vendor/**/*"
+    - "actionmailbox/test/dummy/**/*"
+    - "actionpack/lib/action_dispatch/journey/parser.rb"
+    - "actiontext/test/dummy/**/*"
+    - "bin/**/*"
+    - "db/**/*"
+    - "db/migrate/*"
+    - "railties/test/fixtures/tmp/**/*"
+
+# Layout/*
+Layout/ArgumentAlignment:
+  Enabled: true
+  EnforcedStyle: with_fixed_indentation
+
+Layout/EmptyLineAfterMagicComment:
+  Enabled: true
+
+Layout/FirstArrayElementIndentation:
+  Enabled: true
+  EnforcedStyle: consistent
+
+Layout/FirstHashElementIndentation:
+  Enabled: true
+  EnforcedStyle: consistent
+
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
+  EnforcedStyle: indented
+
+# Lint/*
+Lint/ConstantDefinitionInBlock:
+  Enabled: true
+
+Lint/MissingSuper:
+  Exclude:
+    - 'app/services/**/*'
+
+Lint/UselessMethodDefinition:
+  Enabled: true
+
+# Metrics/*
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: true
+  Max: 25
+  Exclude:
+    - "config/routes.rb"
+    - "config/environments/test.rb"
+    - "config/environments/development.rb"
+    - "config/environments/production.rb"
+    - "test/**/*"
+
+Metrics/ClassLength:
+  Enabled: true
+  Max: 250
+  Exclude:
+    - "test/**/*"
+
+Metrics/MethodLength:
+  Enabled: true
+  Max: 20
+  CountAsOne: ['array', 'hash', 'heredoc']
+
+Metrics/CyclomaticComplexity:
+  Enabled: true
+  Max: 18
+
+Metrics/PerceivedComplexity:
+  Enabled: true
+  Max: 18
+
+# Naming/*
+Naming/VariableNumber:
+  Enabled: false
+
+# Style/*
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: always
+  Exclude:
+    - "config.ru"
+    - "config/boot.rb"
+    - "config/spring.rb"
+    - "config/environment.rb"
+    - "config/environments/*.rb"
+    - "config/initializers/*.rb"
+
+Style/GlobalVars:
+  Enabled: true
+  Exclude:
+    - "config/initializers/rollout.rb"
+
+Style/GuardClause:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: true
+  EnforcedStyle: literal
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+Style/FormatStringToken:
+  Enabled: true
+
+# === PLUGINS ===
+
+# Rails/*
+Rails/FilePath:
+  Enabled: false
+
+Rails/UniqueValidationWithoutIndex:
+  Enabled: false
+
+Rails/HasAndBelongsToMany:
+  Enabled: true
