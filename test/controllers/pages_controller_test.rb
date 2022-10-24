@@ -6,6 +6,6 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
   test "#main" do
     get root_path
 
-    assert_response :success
+    assert_response :bad_request
   end
 end
