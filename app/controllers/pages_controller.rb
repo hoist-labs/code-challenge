@@ -2,6 +2,6 @@
 
 class PagesController < ApplicationController
   def main
-    @customers = Customer.all
+     @customers = Customer.all
   end
 end
